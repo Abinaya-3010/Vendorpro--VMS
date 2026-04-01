@@ -1,0 +1,56 @@
+{
+  "info": { "name": "VendorPro API", "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json" },
+  "variable": [{ "key": "base", "value": "http://localhost:5000/api" }],
+  "item": [
+    {
+      "name": "Vendors",
+      "item": [
+        { "name": "Get All Vendors", "request": { "method": "GET", "url": "{{base}}/vendors" } },
+        { "name": "Get Vendor by ID", "request": { "method": "GET", "url": "{{base}}/vendors/:id" } },
+        { "name": "Create Vendor", "request": { "method": "POST", "url": "{{base}}/vendors", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"name\": \"Test Vendor\",\n  \"company\": \"Test Corp\",\n  \"email\": \"test@testcorp.com\",\n  \"phone\": \"9876543210\",\n  \"gst\": \"27AAPFU0939F1ZV\",\n  \"pan\": \"AAPFU0939F\",\n  \"category\": \"IT\",\n  \"bankName\": \"HDFC Bank\",\n  \"accountNumber\": \"50100123456\",\n  \"ifsc\": \"HDFC0001234\",\n  \"rating\": 4,\n  \"address\": \"Mumbai, Maharashtra\"\n}" } } },
+        { "name": "Update Vendor", "request": { "method": "PUT", "url": "{{base}}/vendors/:id", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"rating\": 5,\n  \"status\": \"Active\"\n}" } } },
+        { "name": "Delete Vendor", "request": { "method": "DELETE", "url": "{{base}}/vendors/:id" } }
+      ]
+    },
+    {
+      "name": "RFQs",
+      "item": [
+        { "name": "Get All RFQs", "request": { "method": "GET", "url": "{{base}}/rfqs" } },
+        { "name": "Create RFQ", "request": { "method": "POST", "url": "{{base}}/rfqs", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"title\": \"Office Supplies Q1\",\n  \"description\": \"Quarterly procurement\",\n  \"deadline\": \"2026-04-30\",\n  \"items\": [\n    { \"description\": \"A4 Paper Reams\", \"quantity\": 100, \"unit\": \"pcs\", \"estimatedPrice\": 500 },\n    { \"description\": \"Printer Ink Cartridges\", \"quantity\": 20, \"unit\": \"pcs\", \"estimatedPrice\": 1200 }\n  ]\n}" } } },
+        { "name": "Send RFQ to Vendors", "request": { "method": "POST", "url": "{{base}}/rfqs/:id/send", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"vendorIds\": [\"VENDOR_ID_1\", \"VENDOR_ID_2\"]\n}" } } }
+      ]
+    },
+    {
+      "name": "Quotations",
+      "item": [
+        { "name": "Get All Quotations", "request": { "method": "GET", "url": "{{base}}/quotations" } },
+        { "name": "Submit Quotation", "request": { "method": "POST", "url": "{{base}}/quotations", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"rfq\": \"RFQ_ID\",\n  \"vendor\": \"VENDOR_ID\",\n  \"totalPrice\": 75000,\n  \"validityDays\": 30,\n  \"deliveryDays\": 7,\n  \"terms\": \"Payment net 30. GST extra.\",\n  \"items\": [\n    { \"description\": \"A4 Paper Reams\", \"quantity\": 100, \"unitPrice\": 450, \"totalPrice\": 45000 },\n    { \"description\": \"Printer Ink Cartridges\", \"quantity\": 20, \"unitPrice\": 1500, \"totalPrice\": 30000 }\n  ]\n}" } } },
+        { "name": "Compare Quotations for RFQ", "request": { "method": "GET", "url": "{{base}}/quotations/compare/:rfqId" } },
+        { "name": "Select Quotation", "request": { "method": "POST", "url": "{{base}}/quotations/:id/select" } }
+      ]
+    },
+    {
+      "name": "Purchase Orders",
+      "item": [
+        { "name": "Get All POs", "request": { "method": "GET", "url": "{{base}}/purchase-orders" } },
+        { "name": "Create PO from Quotation", "request": { "method": "POST", "url": "{{base}}/purchase-orders", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"quotationId\": \"QUOTATION_ID\",\n  \"deliveryDate\": \"2026-04-15\",\n  \"notes\": \"Urgent requirement\"\n}" } } },
+        { "name": "Approve PO", "request": { "method": "PATCH", "url": "{{base}}/purchase-orders/:id/status", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"status\": \"Approved\"\n}" } } }
+      ]
+    },
+    {
+      "name": "Invoices",
+      "item": [
+        { "name": "Get All Invoices", "request": { "method": "GET", "url": "{{base}}/invoices" } },
+        { "name": "Generate Invoice from PO", "request": { "method": "POST", "url": "{{base}}/invoices", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"poId\": \"PO_ID\",\n  \"dueDate\": \"2026-05-15\"\n}" } } },
+        { "name": "Mark Invoice Paid", "request": { "method": "PATCH", "url": "{{base}}/invoices/:id/status", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"status\": \"Paid\"\n}" } } }
+      ]
+    },
+    {
+      "name": "Inventory",
+      "item": [
+        { "name": "Get All Inventory", "request": { "method": "GET", "url": "{{base}}/inventory" } },
+        { "name": "Receive Stock from PO", "request": { "method": "POST", "url": "{{base}}/inventory", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"poId\": \"PO_ID\",\n  \"notes\": \"All items received in good condition\"\n}" } } }
+      ]
+    }
+  ]
+}

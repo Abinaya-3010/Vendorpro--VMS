@@ -1,0 +1,20 @@
+{
+  "vendors": [
+    { "name": "Rajesh Kumar", "company": "TechSupply Pvt Ltd", "email": "rajesh@techsupply.com", "phone": "9876543210", "gst": "27AAPFU0939F1ZV", "pan": "AAPFU0939F", "category": "IT", "bankName": "HDFC Bank", "accountNumber": "50100123456789", "ifsc": "HDFC0001234", "rating": 4, "address": "Mumbai, Maharashtra", "status": "Active" },
+    { "name": "Priya Sharma", "company": "BuildMart Solutions", "email": "priya@buildmart.com", "phone": "9876501234", "gst": "07AAECB2190H1ZP", "pan": "AAECB2190H", "category": "Construction", "bankName": "SBI", "accountNumber": "32019876543", "ifsc": "SBIN0001234", "rating": 3, "status": "Active" },
+    { "name": "Amit Patel", "company": "FastLog Logistics", "email": "amit@fastlog.com", "phone": "9988776655", "gst": "24AABCF1234G1ZX", "pan": "AABCF1234G", "category": "Logistics", "bankName": "ICICI Bank", "accountNumber": "009101234567", "ifsc": "ICIC0001234", "rating": 5, "status": "Active" }
+  ],
+  "rfq_sample": {
+    "title": "Office IT Equipment Procurement",
+    "description": "Laptops and peripherals for new office",
+    "deadline": "2026-04-30",
+    "items": [
+      { "description": "Dell Laptop i7", "quantity": 10, "unit": "pcs", "estimatedPrice": 75000 },
+      { "description": "27-inch Monitor", "quantity": 10, "unit": "pcs", "estimatedPrice": 18000 }
+    ]
+  },
+  "quotation_samples": [
+    { "totalPrice": 925000, "validityDays": 30, "deliveryDays": 7, "terms": "Payment within 30 days. 1-year warranty." },
+    { "totalPrice": 980000, "validityDays": 45, "deliveryDays": 10, "terms": "Net 45 payment. 2-year comprehensive warranty." }
+  ]
+}
