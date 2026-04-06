@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { poAPI, vendorAPI, invoiceAPI } from '../utils/api';
-import Modal from '../components/Modal';
-import Badge from '../components/Badge';
-import Card from '../components/Card';
+import Modal from '../components/Modal.jsx';
+import Badge from '../components/Badge.jsx';
+import Card from '../components/Card.jsx';
 
 export default function PurchaseOrdersPage() {
   const [pos, setPOs] = useState([]);

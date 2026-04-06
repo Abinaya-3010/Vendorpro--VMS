@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import StatCard from '../components/StatCard';
+import StatCard from '../components/StatCard.jsx';
 import { vendorAPI, rfqAPI, poAPI, invoiceAPI } from '../utils/api';
 
 export default function DashboardPage() {

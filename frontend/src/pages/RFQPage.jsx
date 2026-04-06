@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { rfqAPI, vendorAPI } from '../utils/api';
-import Modal from '../components/Modal';
-import Badge from '../components/Badge';
-import Card from '../components/Card';
+import { rfqAPI} from '../utils/api';
+import Modal from '../components/Modal.jsx';
+import Badge from '../components/Badge.jsx';
+import Card from '../components/Card.jsx';
 
 const EMPTY_ITEM = { description: '', quantity: 1, unit: 'pcs', estimatedPrice: '' };
 const EMPTY_RFQ = { title: '', description: '', deadline: '', items: [{ ...EMPTY_ITEM }] };

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { quotationAPI, rfqAPI, vendorAPI, poAPI } from '../utils/api';
-import Modal from '../components/Modal';
-import Badge from '../components/Badge';
-import Card from '../components/Card';
+import Modal from '../components/Modal.jsx';
+import Badge from '../components/Badge.jsx';
+import Card from '../components/Card.jsx';
 
 const EMPTY_FORM = { rfq: '', vendor: '', totalPrice: '', validityDays: 30, deliveryDays: 7, terms: '', items: [] };
 
