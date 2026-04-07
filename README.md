@@ -114,4 +114,39 @@ npm start
 9. Track Inventory
 
 
+##  Architecture Diagram
 
+┌─────────────────────────────────────────┐
+│           FRONTEND (React.js)           │
+│  Pages → Components → Axios API calls   │
+└─────────────────┬───────────────────────┘
+                  │  HTTP / JSON (REST API)
+                  ▼
+┌─────────────────────────────────────────┐
+│         BACKEND (Node.js + Express)     │
+│   Routes → Controllers → Mongoose ODM  │
+└─────────────────┬───────────────────────┘
+                  │  Mongoose queries
+                  ▼
+┌─────────────────────────────────────────┐
+│         DATABASE (MongoDB Atlas)        │
+│  vendors · rfqs · quotations · invoices │
+└─────────────────────────────────────────┘
+
+
+##  Screenshots
+
+### Dashboard
+![Dashboard](Screenshots/Dashboard.png)
+
+### Vendor Management
+![Vendors](Screenshots/Vendor.png)
+
+### RFQ Creation
+![RFQ](Screenshots/RFQ.png)
+
+### Quotation Comparison
+![Quotations](Screenshots/Quotations.png)
+
+### Cluster
+![Cluster](Screenshots/Cluster.png)
